@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "лаба3_с_шарп", "л
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "лаба4с_шарп", "лаба4с_шарп\лаба4с_шарп.csproj", "{6040418F-C7BF-46CA-A634-92C27BB74164}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "лаба5_6_с_шарп", "лаба5_6_с_шарп\лаба5_6_с_шарп.csproj", "{1870D147-B43E-4054-BE60-AC07A3CB6F99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6040418F-C7BF-46CA-A634-92C27BB74164}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6040418F-C7BF-46CA-A634-92C27BB74164}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6040418F-C7BF-46CA-A634-92C27BB74164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1870D147-B43E-4054-BE60-AC07A3CB6F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1870D147-B43E-4054-BE60-AC07A3CB6F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1870D147-B43E-4054-BE60-AC07A3CB6F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1870D147-B43E-4054-BE60-AC07A3CB6F99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
