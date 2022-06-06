@@ -7,8 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Controller\" />
+    <Compile Remove="Controller\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Controller\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Controller\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lab5_6Lib\Lab5_6Lib.csproj" />
   </ItemGroup>
 
 </Project>

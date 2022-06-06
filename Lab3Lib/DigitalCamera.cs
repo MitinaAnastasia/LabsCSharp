@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 /*Для интерфейса необходимо определить 1 свойство и 2 метода. 
 Абстрактный класс должен содержать 3-5 свойств и 3-5 методов(включая унаследованные свойства интерфейса). 
@@ -14,10 +13,26 @@ using System.Windows.Forms;
 
 namespace лаба3_с_шарп
 {
-    public interface Device 
+    public class DigitalCamera : Camera
     {
-        string brand { get; set; }
-        void status(bool vkl);
-        void power(int percent);
+        public int memory { get; set; }
+        public int battery_volume { get; set; }
+
+        public DigitalCamera(string brand, string diaphragms, int zoom, int memory, int battery_volume) : base(brand, diaphragms, zoom)
+        {
+            this.memory = memory;
+            this.battery_volume = battery_volume;
+        }
+
+        public string delete_photo()
+        {
+           return "Фото удалено";
+        }
+
+        public string watch_photo()
+        {
+            return "Режим просмотра фотографий включен";
+        }
+
     }
 }

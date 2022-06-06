@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
 
 
 namespace лаба5_6_с_шарп.Controller
 {
-    class ConveyorsController
+    public class ConveyorsController
     {
         public Models.Conveyors CC_cConveyor;
         private Random CC_rBreakdown = new Random();

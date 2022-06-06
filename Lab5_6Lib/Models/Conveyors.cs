@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 
 namespace лаба5_6_с_шарп.Models
 {
-    class Conveyors
+    public class Conveyors
     {
         public Queue<Parts> C_qConveyor = new Queue<Parts>();  // Детали конвеера
         public Stack<Parts> C_qReserve = new Stack<Parts>();  // Запас деталей конвеера

@@ -80,44 +80,44 @@ namespace лаба3_с_шарп
         private void PowerButton_Click(object sender, EventArgs e)
         {
             int value = new Random().Next(0, 100);
-            photo.power(value);
+            MessageBox.Show(photo.power(value));
         }
 
         private void FotoButton_Click(object sender, EventArgs e)
         {
-            photo.foto();
+            MessageBox.Show(photo.foto());
         }
 
         private void DelFotoButton_Click(object sender, EventArgs e)
         {
-            photo.delete_photo();
+            MessageBox.Show(photo.delete_photo());
         }
 
         private void WatchButton_Click(object sender, EventArgs e)
         {
-            photo.watch_photo();
+            MessageBox.Show(photo.watch_photo());
         }
 
         private void NearButton_Click(object sender, EventArgs e)
         {
-            photo.zooming(true);
+            MessageBox.Show(photo.zooming(true));
         }
 
         private void FarButton_Click(object sender, EventArgs e)
         {
-            photo.zooming(false);
+            MessageBox.Show(photo.zooming(false));
         }
 
         private void TurnOnButton_Click(object sender, EventArgs e)
         {
-            photo.status(true);
+            MessageBox.Show(photo.status(true));
             enab(true);
             TurnOffButton.Enabled = true;
         }
 
         private void TurnOffButton_Click(object sender, EventArgs e)
         {
-            photo.status(false);
+            MessageBox.Show(photo.status(false));
             enab(false);
             TurnOffButton.Enabled = false;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace лаба1_с_шарп
 {
-    class Disc
+    public class Disc
     {
         public List<Musical_composition> tracklist; //список всех треков
         public Disc() // конструктор, который добавляет все треки

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 
 namespace лаба5_6_с_шарп.Models
 {
-    class Loaders
+    public class Loaders
     {
         public Parts L_pbLoader = new Parts();
         public Parts L_pbParts = new Parts();

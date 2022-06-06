@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
 
 
 namespace лаба5_6_с_шарп.Controller
 {
-    class LoaderController
+    public class LoaderController
     {
         public Models.Loaders LC_lLoader;
         private int CC_iStartY { get; set; }

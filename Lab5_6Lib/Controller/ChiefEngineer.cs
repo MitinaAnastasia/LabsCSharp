@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
 
 
@@ -11,7 +10,7 @@ namespace лаба5_6_с_шарп.Controller
 {
     // Данный класс имеет возможность создавать объект, способный ремонтировать конвеер.
     // Более того, если данный объект класса добавлен в модель, то другие существующие механики получают бонус к скорости ремонта.
-    class ChiefEngineer : Models.Mechanics
+    public class ChiefEngineer : Models.Mechanics
     {
         public Models.Parts CE_pbChiefMech = new Models.Parts();
         public int CE_iRepairSpeed { get; set; }    // Скорость починки

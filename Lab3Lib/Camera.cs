@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 /*Для интерфейса необходимо определить 1 свойство и 2 метода. 
 Абстрактный класс должен содержать 3-5 свойств и 3-5 методов(включая унаследованные свойства интерфейса). 
@@ -27,48 +26,49 @@ namespace лаба3_с_шарп
             this.zoom = zoom;
         }
 
-        public void status(bool vkl)
+        public string status(bool vkl)
         {
             if (vkl)
             {
-                MessageBox.Show("Фотоаппарат включен");
+                return "Фотоаппарат включен";
             }
             else
             {
-                MessageBox.Show("Фотоаппарат выключен");
+                return "Фотоаппарат выключен";
             }
         }
 
-        public void power(int percent)
+        public string power(int percent)
         {
             if (percent >= 40)
             {
-                MessageBox.Show("Фотоаппарат заряжен, его заряд: " + (percent).ToString());
+                return "Фотоаппарат заряжен, его заряд: " + (percent).ToString();
             }
             if (0 < percent && percent < 40)
             {
-                MessageBox.Show("Фотоаппарат слабо заряжен, его заряд: " + (percent).ToString());
+                return "Фотоаппарат слабо заряжен, его заряд: " + (percent).ToString();
             }
             if (percent == 0)
             {
-                MessageBox.Show("Фотоаппарат поставлен на зарядку, потому что его заряд: " + (percent).ToString());
+                return "Фотоаппарат поставлен на зарядку, потому что его заряд: " + (percent).ToString();
             }
+            return "Error";
         }
 
-        public void foto()
+        public string foto()
         {
-            MessageBox.Show("Фотография успешно сделана");
+           return "Фотография успешно сделана";
         }
 
-        public void zooming(bool val)
+        public string zooming(bool val)
         {
             if (val)
             {
-                MessageBox.Show("Вы успешно приблизили");
+               return "Вы успешно приблизили";
             }
             else
             {
-                MessageBox.Show("Вы успешно отдалили");
+                return "Вы успешно отдалили";
             }
         }
 

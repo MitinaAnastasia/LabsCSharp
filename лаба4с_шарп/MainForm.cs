@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DivaceLib;
 using System.Reflection;
 
 /*Взять за основу задачу 6 (номер 19). Должно быть не менее 3 классов, которые наследуются от абстрактного класса. 
@@ -28,7 +27,7 @@ namespace лаба4с_шарп
             InitializeComponent();
         }
 
-        Assembly SampleAssembly = Assembly.LoadFrom("DivaceLib.dll");
+        Assembly SampleAssembly = Assembly.LoadFrom(@"../../../../DivaceLib/bin/Debug/net5.0/Lab4Lib.dll");
         Type t;
 
         private void Form1_Load(object sender, EventArgs e)
