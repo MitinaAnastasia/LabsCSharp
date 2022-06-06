@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace DivaceLib
 {
-    public abstract class Camera : Divace
+    public abstract class Camera : IDivace
     {
-        public string brand { get; set; }
-        public string diaphragms { get; set; }
-        public int zoom { get; set; }
+        public string Brand { get; set; }
+        public string Diaphragms { get; set; }
+        public int Zoom { get; set; }
 
         public Camera()
         {
-            this.brand = "Sony";
-            this.diaphragms = "1/8";
-            this.zoom = 2;
+            Brand = "Sony";
+            Diaphragms = "1/8";
+            Zoom = 2;
         }
 
-        public string status(bool vkl)
+        public string Status(bool vkl)
         {
             if (vkl)
             {
@@ -31,7 +31,7 @@ namespace DivaceLib
             }
         }
 
-        public string power(int percent)
+        public string Power(int percent)
         {
             if (percent >= 40)
             {
@@ -48,12 +48,12 @@ namespace DivaceLib
             return "";
         }
 
-        private string foto()
+        private string DoPhoto()
         {
             return "Фотография успешно сделана";
         }
 
-        private string zooming(bool val)
+        private string Zooming(bool val)
         {
             if (val)
             {

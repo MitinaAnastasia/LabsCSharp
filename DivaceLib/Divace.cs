@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DivaceLib
 {
-    public interface Divace
+    public interface IDivace
     {
-        string brand { get; set; }
-        string status(bool vkl);
-        string power(int percent);
+        string Brand { get; set; }
+        string Status(bool vkl);
+        string Power(int percent);
     }
 
 }

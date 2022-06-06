@@ -8,20 +8,20 @@ namespace DivaceLib
 {
     class PolaroidCamera : Camera
     {
-        public int number_of_frames { get; set; }
-        public int colour_volume { get; set; }
+        public int NumberOfFrames { get; set; }
+        public int ColourVolume { get; set; }
 
         public PolaroidCamera() : base()
         {
-            this.number_of_frames = 10;
-            this.colour_volume = 100;
+            NumberOfFrames = 10;
+            ColourVolume = 100;
         }
 
-        public string print_photo()
+        public string PrintPhoto()
         {
             return "Фото сделано и распечатано";
         }
-        public string frames(bool frame)
+        public string Frames(bool frame)
         {
             if (frame)
             {

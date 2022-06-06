@@ -24,26 +24,26 @@ namespace лаба1_с_шарп
 
         }
 
-        Disc listtr = new Disc();
+        Disc Listtr = new Disc();
 
         private void OutputButton_Click(object sender, EventArgs e) //выводит сборку на диске в нужном формате в листбокс при нажатии на кнопку "Вывести сборку на диске"
         {
             listBox.Items.Clear();
-            int count = listtr.tracklist.Count;
+            int count = Listtr.tracklist.Count;
             for (int i = 0; i < count; i++)
             {
-                listBox.Items.Add((i + 1).ToString() + ". " + listtr.tracklist[i].makeStr());
+                listBox.Items.Add((i + 1).ToString() + ". " + Listtr.tracklist[i].MakeStr());
             }
         }
 
         private void DisclenButton_Click(object sender, EventArgs e) // при нажатии на кнопку "продолжительность диска" выведет его продолжительность в текстбокс
         {
             LengthBox.Clear();
-            LengthBox.Text += listtr.discLength();
+            LengthBox.Text += Listtr.DiscLength();
         }
 
 
-        public bool check(string str) /* проверка на наличие посторонних символов в строке, допускаются только цифры, или точка, или запятая. Если какой-либо символ строки не удовлетворяет,
+        public bool Check(string str) /* проверка на наличие посторонних символов в строке, допускаются только цифры, или точка, или запятая. Если какой-либо символ строки не удовлетворяет,
         то возвращаем false, иначе true*/
         {
             int i = 0;
@@ -68,11 +68,11 @@ namespace лаба1_с_шарп
         если они удовлетворяют всем проверкам, то находим наши треки, если таковых нет, то нам это и выведут*/
         {
             ResTextBox.Clear();
-            if (BeginTextBox.Text != "" && EndTextBox.Text != "" && check(BeginTextBox.Text) && check(EndTextBox.Text))
+            if (BeginTextBox.Text != "" && EndTextBox.Text != "" && Check(BeginTextBox.Text) && Check(EndTextBox.Text))
             {
                 double first = double.Parse(BeginTextBox.Text.Replace('.', ','));
                 double last = double.Parse(EndTextBox.Text.Replace(".", ","));
-                string str = listtr.findByRange(first, last);
+                string str = Listtr.FindByRange(first, last);
                 if (str == "")
                 {
                     ResTextBox.Text += "Нет треков в заданном диапазоне";
@@ -94,10 +94,10 @@ namespace лаба1_с_шарп
             if (Enum.IsDefined(typeof(Styles), input_style))
             {
                 listBox.Items.Clear();
-                int count = listtr.tracklist.Count;
-                var sortlist = listtr.sortByStyles((Styles)Enum.Parse(typeof(Styles), input_style));
+                int count = Listtr.tracklist.Count;
+                var sortlist = Listtr.SortByStyles((Styles)Enum.Parse(typeof(Styles), input_style));
                 for (int i = 0; i < count; i++)
-                    listBox.Items.Add((i + 1).ToString() + ". " + sortlist[i].makeStr());
+                    listBox.Items.Add((i + 1).ToString() + ". " + sortlist[i].MakeStr());
             }
             else
             {

@@ -26,33 +26,33 @@ namespace лаба1_с_шарп
             tracklist.Add(new Musical_composition("Pyrokinesis - Я приду к тебе с клубникой в декабре ", 4.38, Styles.HIPHOP_RAP));
         }
 
-        public double discLength() // метод, который находит продолжительность диска, проходит по нашему списку и вычисляет сумму продолжительностей всех треков
+        public double DiscLength() // метод, который находит продолжительность диска, проходит по нашему списку и вычисляет сумму продолжительностей всех треков
         {
             double len_disc = 0;
             for (int i = 0; i < tracklist.Count(); i++)
             {
-                len_disc += tracklist[i].getMusic_length();
+                len_disc += tracklist[i].GetMusic_length();
             }
             return len_disc;
         }
 
-        public List<Musical_composition> sortByStyles(Styles style) //сортировка по стилю, передается стиль, а затем список сортируется, исходя из введенного стиля, возвращает отсартированный список
+        public List<Musical_composition> SortByStyles(Styles style) //сортировка по стилю, передается стиль, а затем список сортируется, исходя из введенного стиля, возвращает отсартированный список
         {
 
-            List<Musical_composition> sortedtracklist = tracklist.OrderByDescending(s => s.getStyle() == style).ToList();
+            List<Musical_composition> sortedtracklist = tracklist.OrderByDescending(s => s.GetStyle() == style).ToList();
             return sortedtracklist;
         }
 
-        public string findByRange(double first, double last) // находит треки, продолжительность которых удовлетворяет диапазону введенному, затем возвращает строку, переделанную с помощью makeStr()
+        public string FindByRange(double first, double last) // находит треки, продолжительность которых удовлетворяет диапазону введенному, затем возвращает строку, переделанную с помощью makeStr()
         {
             string str = "";
-            double m_len = 0;
+            double len;
             for (int i = 0; i < tracklist.Count(); i++)
             {
-                m_len = tracklist[i].getMusic_length();
-                if ( m_len >= first && m_len <= last)
+                len = tracklist[i].GetMusic_length();
+                if (len >= first && len <= last)
                 {
-                    str+= tracklist[i].makeStr() + " ";
+                    str+= tracklist[i].MakeStr() + " ";
                 }
             }
             return str;

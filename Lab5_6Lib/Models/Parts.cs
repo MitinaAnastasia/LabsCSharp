@@ -8,8 +8,7 @@ namespace лаба5_6_с_шарп.Models
 {
     public class Parts
     {
-        public string Name { get; set; }
-        public int P_iPosX { get; set; }
-        public int P_iPosY { get; set; }
+        public int PosX { get; set; }
+        public int PosY { get; set; }
     }
 }

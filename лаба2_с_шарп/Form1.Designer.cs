@@ -106,7 +106,7 @@ namespace лаба2_с_шарп
             this.withCountrycheckbtn.TabStop = true;
             this.withCountrycheckbtn.Text = "с страной-производителем";
             this.withCountrycheckbtn.UseVisualStyleBackColor = true;
-            this.withCountrycheckbtn.CheckedChanged += new System.EventHandler(this.withCountrycheckbtn_CheckedChanged);
+            this.withCountrycheckbtn.CheckedChanged += new System.EventHandler(this.WithCountrycheckbtn_CheckedChanged);
             // 
             // withoutCountrycheckbtn
             // 
@@ -118,7 +118,7 @@ namespace лаба2_с_шарп
             this.withoutCountrycheckbtn.TabStop = true;
             this.withoutCountrycheckbtn.Text = "без страны-производителя";
             this.withoutCountrycheckbtn.UseVisualStyleBackColor = true;
-            this.withoutCountrycheckbtn.CheckedChanged += new System.EventHandler(this.withoutCountrycheckbtn_CheckedChanged);
+            this.withoutCountrycheckbtn.CheckedChanged += new System.EventHandler(this.WithoutCountrycheckbtn_CheckedChanged);
             // 
             // inputButton
             // 
@@ -129,7 +129,7 @@ namespace лаба2_с_шарп
             this.inputButton.TabIndex = 8;
             this.inputButton.Text = "Ввод";
             this.inputButton.UseVisualStyleBackColor = true;
-            this.inputButton.Click += new System.EventHandler(this.inputButton_Click);
+            this.inputButton.Click += new System.EventHandler(this.InputButton_Click);
             // 
             // label4
             // 
@@ -177,7 +177,7 @@ namespace лаба2_с_шарп
             this.outputButton.TabIndex = 14;
             this.outputButton.Text = "Вывод";
             this.outputButton.UseVisualStyleBackColor = true;
-            this.outputButton.Click += new System.EventHandler(this.outputButton_Click);
+            this.outputButton.Click += new System.EventHandler(this.OutputButton_Click);
             // 
             // Form1
             // 

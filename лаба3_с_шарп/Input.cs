@@ -20,7 +20,7 @@ namespace лаба3_с_шарп
 {
     public partial class Input : Form
     {
-        Device divace;
+        IDevice Divace;
         public Input()
         {
             InitializeComponent();
@@ -38,14 +38,14 @@ namespace лаба3_с_шарп
             int zoom = Int32.Parse(ZoomTextBox.Text);
             int memory = Int32.Parse(MemoryTextBox.Text);
             int volume = Int32.Parse(VolumeTextBox.Text);
-            divace = new DigitalCamera(brand, diaf, zoom, memory, volume);
+            Divace = new DigitalCamera(brand, diaf, zoom, memory, volume);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             input();
             MainForm main = this.Owner as MainForm;
-            main.add(divace);
+            main.Add(Divace);
             this.Close();
         }
 

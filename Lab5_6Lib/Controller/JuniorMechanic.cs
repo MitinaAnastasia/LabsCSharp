@@ -10,59 +10,58 @@ namespace лаба5_6_с_шарп.Controller
 {
     // Данный класс имеет возможность создавать объект, способный ремонтировать конвеер.
     // При ремонте, конвеер не деспособен до починки
-    public class JuniorMechanic : Models.Mechanics
+    public class JuniorMechanic : Models.IMechanics
     {
-        public Models.Parts JM_pbJunMech = new Models.Parts();
-        public int JM_iRepairSpeed { get; set; }    // Скорость починки
-        public int JM_iProgress { get; set; }   // Прогресс починки
-        public bool CE_bBusyness { get; set; }  // True - свободен, False- занят
+        public Models.Parts JunMechanic = new();
+        public int RepairSpeed { get; set; }    // Скорость починки
+        public int Progress { get; set; }   // Прогресс починки
+        public bool Busyness { get; set; }  // True - свободен, False- занят
 
 
         public JuniorMechanic()
         {
-            initializeMechanic();
+            InitializeMechanic();
         }
 
 
-        public void initializeMechanic()
+        public void InitializeMechanic()
         {
-            JM_pbJunMech.Name = "junmech";
-            JM_pbJunMech.P_iPosX = 1100;
-            JM_pbJunMech.P_iPosY = 500;
-            JM_iRepairSpeed = 3;
-            JM_iProgress = 0;
-            CE_bBusyness = true;
+            JunMechanic.PosX = 1100;
+            JunMechanic.PosY = 500;
+            RepairSpeed = 3;
+            Progress = 0;
+            Busyness = true;
         }
 
 
-        public void repairLoader(ref Models.Conveyors CC_cConveyor)
+        public void RepairLoader(ref Models.Conveyors conveyorControll)
         {
-            JM_pbJunMech.P_iPosX = CC_cConveyor.C_pbConveer.P_iPosX + 700;
-            JM_pbJunMech.P_iPosY = CC_cConveyor.C_pbConveer.P_iPosY;
+            JunMechanic.PosX = conveyorControll.Conveyor.PosX + 700;
+            JunMechanic.PosY = conveyorControll.Conveyor.PosY;
 
-            if (JM_iProgress < Models.Conveyors.C_iHitbox)
+            if (Progress < Models.Conveyors.Hitbox)
             {
-                JM_iProgress += JM_iRepairSpeed;
+                Progress += RepairSpeed;
             }
             else
             {
-                JM_pbJunMech.P_iPosX = 1100;
-                JM_pbJunMech.P_iPosY = 500;
-                CE_bBusyness = true;
-                CC_cConveyor.C_bWorkStatus = true;
-                CC_cConveyor.C_bRepairStatus = false;
-                JM_iProgress = 0;
+                JunMechanic.PosX = 1100;
+                JunMechanic.PosY = 500;
+                Busyness = true;
+                conveyorControll.WorkStatus = true;
+                conveyorControll.RepairStatus = false;
+                Progress = 0;
             }
         }
 
 
-        public void controlRepair(ref Models.Conveyors CC_cConveyor)
+        public void ControlRepair(ref Models.Conveyors conveyorControll)
         {
-            CE_bBusyness = false;
-            CC_cConveyor.C_bRepairStatus = true;
-            if (CC_cConveyor.C_bWorkStatus == false)
+            Busyness = false;
+            conveyorControll.RepairStatus = true;
+            if (conveyorControll.WorkStatus == false)
             {
-                repairLoader(ref CC_cConveyor);
+                RepairLoader(ref conveyorControll);
             }
         }
     }

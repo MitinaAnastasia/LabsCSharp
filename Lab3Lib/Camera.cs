@@ -13,20 +13,20 @@ using System.Threading.Tasks;
 
 namespace лаба3_с_шарп
 {
-    public abstract class Camera : Device
+    public abstract class Camera : IDevice
     {
-        public string brand { get; set; }
-        public string diaphragms { get; set; }
-        public int zoom { get; set; }
+        public string Brand { get; set; }
+        public string Diaphragms { get; set; }
+        public int Zoom { get; set; }
 
         public Camera(string brand, string diaphragms, int zoom)
         {
-            this.brand = brand;
-            this.diaphragms = diaphragms;
-            this.zoom = zoom;
+            Brand = brand;
+            Diaphragms = diaphragms;
+            Zoom = zoom;
         }
 
-        public string status(bool vkl)
+        public string Status(bool vkl)
         {
             if (vkl)
             {
@@ -38,7 +38,7 @@ namespace лаба3_с_шарп
             }
         }
 
-        public string power(int percent)
+        public string Power(int percent)
         {
             if (percent >= 40)
             {
@@ -55,12 +55,12 @@ namespace лаба3_с_шарп
             return "Error";
         }
 
-        public string foto()
+        public string DoPhoto()
         {
            return "Фотография успешно сделана";
         }
 
-        public string zooming(bool val)
+        public string Zooming(bool val)
         {
             if (val)
             {

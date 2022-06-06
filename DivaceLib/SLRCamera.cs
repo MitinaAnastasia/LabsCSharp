@@ -8,16 +8,16 @@ namespace DivaceLib
 {
     class SLRCamera : Camera
     {
-        public double size_of_excerpt { get; set; } //размер выдержки
-        public int photo_quality { get; set; }
+        public double SizeOfExcerpt { get; set; } //размер выдержки
+        public int PhotoQuality { get; set; }
 
         public SLRCamera() : base()
         {
-            this.size_of_excerpt = 0.03;
-            this.photo_quality = 8;
+            SizeOfExcerpt = 0.03;
+            PhotoQuality = 8;
         }
 
-        public string gate_status(bool gate)
+        public string GateStatus(bool gate)
         {
             if (gate)
             {
@@ -29,7 +29,7 @@ namespace DivaceLib
             }
         }
 
-        public string vkl_flash(bool vkl)
+        public string VklFlash(bool vkl)
         {
             if (vkl)
             {

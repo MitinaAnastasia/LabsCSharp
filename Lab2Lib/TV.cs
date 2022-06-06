@@ -21,44 +21,44 @@ namespace лаба2_с_шарп
 {
     public class TV : Televisions //класс 2-го уровня
     {
-        private string producing_country; //дополнительное поле: Страна-производитель
-        public TV(string firm, int diagonal, int sound_power, string producing_country) : base(firm, diagonal, sound_power) //конструктор
+        private string _producingCountry; //дополнительное поле: Страна-производитель
+        public TV(string firm, int diagonal, int soundPower, string producingCountry) : base(firm, diagonal, soundPower) //конструктор
         {
-            this.producing_country = producing_country;
+            _producingCountry = producingCountry;
         }
 
-        public string getProducingCountry()
+        public string GetProducingCountry()
         {
-            return producing_country;
+            return _producingCountry;
         }
 
-        public void setProducingCountry(string producing_country)
+        public void SetProducingCountry(string producingCountry)
         {
-            this.producing_country = producing_country;
+            _producingCountry = producingCountry;
         }
 
-        public override double qualityOfTV() //функция, которая определяет качество объекта класса 2-го уровня по заданной формуле 
+        public override double QualityOfTV() //функция, которая определяет качество объекта класса 2-го уровня по заданной формуле 
         {
-            double Q = base.qualityOfTV();
-            double Qp = 0;
-            if (getProducingCountry() == "Япония")
+            double quality = base.QualityOfTV();
+            double qualityProd;
+            if (GetProducingCountry() == "Япония")
             {
-                Qp = 2 * Q;
+                qualityProd = 2 * quality;
             }
-            else if (getProducingCountry() == "Сингапур" || getProducingCountry() == "Корея")
+            else if (GetProducingCountry() == "Сингапур" || GetProducingCountry() == "Корея")
             {
-                Qp = 1.5 * Q;
+                qualityProd = 1.5 * quality;
             }
             else
             {
-                Qp = Q;
+                qualityProd = quality;
             }
-            return Qp;
+            return qualityProd;
         }
 
-        public override string makeStr() // возвращает строку для вывода в листбокс класса 2-го уровня
+        public override string MakeStr() // возвращает строку для вывода в листбокс класса 2-го уровня
         {
-            return base.makeStr() + ", Страна-производитель: " + getProducingCountry();
+            return base.MakeStr() + ", Страна-производитель: " + GetProducingCountry();
         }
     }
 

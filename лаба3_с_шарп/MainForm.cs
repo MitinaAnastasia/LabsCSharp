@@ -19,29 +19,29 @@ namespace лаба3_с_шарп
 {
     public partial class MainForm : Form
     {
-        List<Device> devices = new List<Device>();
-        DigitalCamera photo = new DigitalCamera("Sony", "f/2.8", 4, 4, 1000);
+        List<IDevice> Devices = new List<IDevice>();
+        DigitalCamera Photo = new DigitalCamera("Sony", "f/2.8", 4, 4, 1000);
         public MainForm()
         {
             InitializeComponent();
         }
 
-        public void add(Device divace)
+        public void Add(IDevice divace)
         {
-            devices.Add(divace);
+            Devices.Add(divace);
         }
 
-        public void output()
+        public void Output()
         { 
             listBox1.Items.Clear();
-            foreach (DigitalCamera photo in devices)
+            foreach (DigitalCamera photo in Devices)
             {
-                listBox1.Items.Add(photo.brand + " " + photo.diaphragms + " " + photo.zoom.ToString() + " " + photo.memory.ToString() + " " + photo.battery_volume.ToString());
+                listBox1.Items.Add(photo.Brand + " " + photo.Diaphragms + " " + photo.Zoom.ToString() + " " + photo.Memory.ToString() + " " + photo.BatteryVolume.ToString());
             }
 
         }
 
-        public void enab (bool state)
+        public void Enab (bool state)
         {
             PowerButton.Enabled = state;
             FotoButton.Enabled = state;
@@ -51,7 +51,7 @@ namespace лаба3_с_шарп
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            enab(false);
+            Enab(false);
             TurnOffButton.Enabled = false;
         }
 
@@ -60,16 +60,16 @@ namespace лаба3_с_шарп
             Input form = new Input();
             form.Owner = this;
             form.ShowDialog();
-            output();
+            Output();
             listBox1.Enabled = true;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if (devices.Count > 0)
+            if (Devices.Count > 0)
             {
-                devices.RemoveAt(listBox1.SelectedIndex);
-                output();
+                Devices.RemoveAt(listBox1.SelectedIndex);
+                Output();
             }
             else
             {
@@ -80,45 +80,45 @@ namespace лаба3_с_шарп
         private void PowerButton_Click(object sender, EventArgs e)
         {
             int value = new Random().Next(0, 100);
-            MessageBox.Show(photo.power(value));
+            MessageBox.Show(Photo.Power(value));
         }
 
         private void FotoButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(photo.foto());
+            MessageBox.Show(Photo.DoPhoto());
         }
 
         private void DelFotoButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(photo.delete_photo());
+            MessageBox.Show(Photo.delete_photo());
         }
 
         private void WatchButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(photo.watch_photo());
+            MessageBox.Show(Photo.watch_photo());
         }
 
         private void NearButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(photo.zooming(true));
+            MessageBox.Show(Photo.Zooming(true));
         }
 
         private void FarButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(photo.zooming(false));
+            MessageBox.Show(Photo.Zooming(false));
         }
 
         private void TurnOnButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(photo.status(true));
-            enab(true);
+            MessageBox.Show(Photo.Status(true));
+            Enab(true);
             TurnOffButton.Enabled = true;
         }
 
         private void TurnOffButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(photo.status(false));
-            enab(false);
+            MessageBox.Show(Photo.Status(false));
+            Enab(false);
             TurnOffButton.Enabled = false;
         }
     }

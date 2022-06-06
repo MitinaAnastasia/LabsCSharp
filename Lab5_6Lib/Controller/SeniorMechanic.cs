@@ -10,58 +10,57 @@ namespace лаба5_6_с_шарп.Controller
 {
     // Данный класс имеет возможность создавать объект, способный ремонтировать конвеер.
     // При этом, сразу же при начале ремонтных работ конвеер возобнавляет работу
-    public class SeniorMechanic : Models.Mechanics
+    public class SeniorMechanic : Models.IMechanics
     {
-        public Models.Parts SM_pbSenMech = new Models.Parts();
-        public int SM_iRepairSpeed { get; set; }    // Скорость починки
-        public int SM_iProgress { get; set; }   // Прогресс починки
-        public bool CE_bBusyness { get; set; }  // True - свободен, False- занят
+        public Models.Parts SenMechanic = new();
+        public int RepairSpeed { get; set; }    // Скорость починки
+        public int Progress { get; set; }   // Прогресс починки
+        public bool Busyness { get; set; }  // True - свободен, False- занят
 
 
         public SeniorMechanic()
         {
-            initializeMechanic();
+            InitializeMechanic();
         }
 
 
-        public void initializeMechanic()
+        public void InitializeMechanic()
         {
-            SM_pbSenMech.Name = "senmech";
-            SM_pbSenMech.P_iPosX = 1100;
-            SM_pbSenMech.P_iPosY = 280;
-            SM_iRepairSpeed = 7;
-            SM_iProgress = 0;
-            CE_bBusyness = true;
+            SenMechanic.PosX = 1100;
+            SenMechanic.PosY = 280;
+            RepairSpeed = 7;
+            Progress = 0;
+            Busyness = true;
         }
 
 
-        public void repairLoader(ref Models.Conveyors CC_cConveyor)
+        public void RepairLoader(ref Models.Conveyors conveyorControll)
         {
-            SM_pbSenMech.P_iPosX = CC_cConveyor.C_pbConveer.P_iPosX + 700;
-            SM_pbSenMech.P_iPosY = CC_cConveyor.C_pbConveer.P_iPosY;
-            if (SM_iProgress < Models.Conveyors.C_iHitbox)
+            SenMechanic.PosX = conveyorControll.Conveyor.PosX + 700;
+            SenMechanic.PosY = conveyorControll.Conveyor.PosY;
+            if (Progress < Models.Conveyors.Hitbox)
             {
-                SM_iProgress += SM_iRepairSpeed;
+                Progress += RepairSpeed;
             }
             else
             {
-                SM_pbSenMech.P_iPosX = 1100;
-                SM_pbSenMech.P_iPosY = 280;
-                CE_bBusyness = true;
-                CC_cConveyor.C_bWorkStatus = true;
-                CC_cConveyor.C_bRepairStatus = false;
-                SM_iProgress = 0;
+                SenMechanic.PosX = 1100;
+                SenMechanic.PosY = 280;
+                Busyness = true;
+                conveyorControll.WorkStatus = true;
+                conveyorControll.RepairStatus = false;
+                Progress = 0;
             }
         }
 
 
-        public void controlRepair(ref Models.Conveyors CC_cConveyor)
+        public void ControlRepair(ref Models.Conveyors conveyorControll)
         {
-            CE_bBusyness = false;
-            CC_cConveyor.C_bRepairStatus = true;
-            if (CC_cConveyor.C_bWorkStatus == false)
+            Busyness = false;
+            conveyorControll.RepairStatus = true;
+            if (conveyorControll.WorkStatus == false)
             {
-                repairLoader(ref CC_cConveyor);
+                RepairLoader(ref conveyorControll);
             }
         }
     }

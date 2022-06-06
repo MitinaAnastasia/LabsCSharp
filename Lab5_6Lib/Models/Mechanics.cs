@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace лаба5_6_с_шарп.Models
 {
-    interface Mechanics
+    interface IMechanics
     {
-        void initializeMechanic();
+        void InitializeMechanic();
 
-        void repairLoader(ref Models.Conveyors CC_cConveyor);
+        void RepairLoader(ref Conveyors conveyorControll);
 
-        void controlRepair(ref Models.Conveyors CC_cConveyor);
+        void ControlRepair(ref Conveyors conveyorControll);
     }
 }

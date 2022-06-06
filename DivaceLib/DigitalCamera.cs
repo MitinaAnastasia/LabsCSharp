@@ -8,21 +8,21 @@ namespace DivaceLib
 {
     public class DigitalCamera : Camera
     {
-        public int memory { get; set; }
-        public int battery_volume { get; set; }
+        public int Memory { get; set; }
+        public int BatteryVolume { get; set; }
 
         public DigitalCamera() : base()
         {
-            this.memory = 4;
-            this.battery_volume = 1000;
+            Memory = 4;
+            BatteryVolume = 1000;
         }
 
-        public string delete_photo()
+        public string DeletePhoto()
         {
             return "Фото удалено";
         }
 
-        public string watch_photo()
+        public string WatchPhoto()
         {
             return "Режим просмотра фотографий включен";
         }

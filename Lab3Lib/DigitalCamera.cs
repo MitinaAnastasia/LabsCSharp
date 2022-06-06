@@ -15,13 +15,13 @@ namespace лаба3_с_шарп
 {
     public class DigitalCamera : Camera
     {
-        public int memory { get; set; }
-        public int battery_volume { get; set; }
+        public int Memory { get; set; }
+        public int BatteryVolume { get; set; }
 
-        public DigitalCamera(string brand, string diaphragms, int zoom, int memory, int battery_volume) : base(brand, diaphragms, zoom)
+        public DigitalCamera(string brand, string diaphragms, int zoom, int memory, int batteryVolume) : base(brand, diaphragms, zoom)
         {
-            this.memory = memory;
-            this.battery_volume = battery_volume;
+            Memory = memory;
+            BatteryVolume = batteryVolume;
         }
 
         public string delete_photo()

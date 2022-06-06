@@ -10,84 +10,83 @@ namespace лаба5_6_с_шарп.Controller
 {
     public class LoaderController
     {
-        public Models.Loaders LC_lLoader;
-        private int CC_iStartY { get; set; }
+        public Models.Loaders LoaderControll;
+        private int int_startY { get; set; }
 
 
         public LoaderController()
         {
-            initializeLoaderController();
-            initLoader();
+            InitializeLoaderController();
+            InitLoader();
         }
 
 
         public LoaderController(int startY)
         {
-            initializeLoaderController(startY);
-            initLoader();
+            InitializeLoaderController(startY);
+            InitLoader();
         }
 
 
-        public void initializeLoaderController()
+        public void InitializeLoaderController()
         {
-            LC_lLoader = new Models.Loaders();
-            LC_lLoader.L_iLoadBatch = 0;
-            LC_lLoader.L_bLoading = false;
-            CC_iStartY = 0;
+            LoaderControll = new Models.Loaders();
+            LoaderControll.LoadBatch = 0;
+            LoaderControll.Loading = false;
+            int_startY = 0;
         }
 
 
-        public void initializeLoaderController(int startY)
+        public void InitializeLoaderController(int startY)
         {
-            LC_lLoader = new Models.Loaders();
-            LC_lLoader.L_iLoadBatch = 0;
-            LC_lLoader.L_bLoading = false;
-            CC_iStartY = startY;
+            LoaderControll = new Models.Loaders();
+            LoaderControll.LoadBatch = 0;
+            LoaderControll.Loading = false;
+            int_startY = startY;
         }
 
 
-        public void initLoader()
+        public void InitLoader()
         {
-            LC_lLoader.L_pbLoader.P_iPosX = 50;
-            LC_lLoader.L_pbLoader.P_iPosY = 230;
+            LoaderControll.Loader.PosX = 50;
+            LoaderControll.Loader.PosY = 230;
         }
 
         // Процесс загрузки деталей погрузщиком
-        public Models.Parts loadParts()
+        public Models.Parts LoadParts()
         {
-            Models.Parts newPart = new Models.Parts();
-            newPart.Name = "part";
-            newPart.P_iPosX = 325;
-            newPart.P_iPosY = CC_iStartY + 35;
+            Models.Parts newPart = new();
+            newPart.PosX = 325;
+            newPart.PosY = int_startY + 35;
             return newPart;
         }
 
         // Загрузка конвеера погрузщиком
-        public void loadConveyor(Models.Conveyors CC_cConveyor)
+        public void LoadConveyor(Models.Conveyors conveyorControll)
         {
-            if (LC_lLoader.L_iLoadBatch < Models.Loaders.L_iBatch)
+            if (LoaderControll.LoadBatch < Models.Loaders.Batch)
             {
-                LC_lLoader.L_pbLoader.P_iPosX = 130;
-                LC_lLoader.L_pbLoader.P_iPosY = CC_iStartY;
-                ++LC_lLoader.L_iLoadBatch;
-                CC_cConveyor.C_qReserve.Push(loadParts());
+                LoaderControll.Loader.PosX = 130;
+                LoaderControll.Loader.PosY = int_startY;
+                ++LoaderControll.LoadBatch;
+                conveyorControll.Reserve.Push(LoadParts());
             }
             else
             {
-                LC_lLoader.L_pbLoader.P_iPosX = 50;
-                LC_lLoader.L_pbLoader.P_iPosY = 230;
-                LC_lLoader.L_iLoadBatch = 0;
-                LC_lLoader.L_bLoading = false;
+                LoaderControll.Loader.PosX = 50;
+                LoaderControll.Loader.PosY = 230;
+                LoaderControll.LoadBatch = 0;
+                LoaderControll.Loading = false;
             }
         }
 
 
-        public void controlLoad(Models.Conveyors CC_cConveyor)
+        public void ControlLoad(Models.Conveyors conveyorControll)
         {
-            if (CC_cConveyor.C_qReserve.Count == 0 || LC_lLoader.L_bLoading == true)
+            if (conveyorControll.Reserve.Count == 0 || LoaderControll.Loading == true)
             {
-                LC_lLoader.L_bLoading = true;
-                loadConveyor(CC_cConveyor);
+                LoaderControll.Loading = true;
+                LoadConveyor(conveyorControll);
             }
         }
     }

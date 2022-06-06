@@ -19,50 +19,50 @@ namespace лаба1_с_шарп
 
     public class Musical_composition //класс, который хранит в себе название песни, ее продолжительность и стиль
     {
-        private string name;
-        private double music_length;
-        private Styles style;
+        private string _name;
+        private double _musicLength;
+        private Styles _style;
 
-        public Musical_composition(string name, double music_length, Styles style) //конструктор
+        public Musical_composition(string name, double musicLength, Styles style) //конструктор
         {
-            this.name = name;
-            this.music_length = music_length;
-            this.style = style;
+            _name = name;
+            _musicLength = musicLength;
+            _style = style;
         }
 
-        public string getName()
+        public string GetName()
         {
-            return name;
+            return _name;
         }
 
-        public void setName(string name)
+        public void SetName(string name)
         {
-            this.name = name;
+            _name = name;
         }
 
-        public double getMusic_length()
+        public double GetMusic_length()
         {
-            return music_length;
+            return _musicLength;
         }
 
-        public void setMusic_length(double music_length)
+        public void SetMusic_length(double musicLength)
         {
-            this.music_length = music_length;
+            _musicLength = musicLength;
         }
 
-        public Styles getStyle()
+        public Styles GetStyle()
         {
-            return style;
+            return _style;
         }
 
-        public void setStyle(Styles style)
+        public void SetStyle(Styles style)
         {
-            this.style = style;
+            _style = style;
         }
 
-        public string makeStr() // возвращает строку для вывода в листбокс
+        public string MakeStr() // возвращает строку для вывода в листбокс
         {
-            return "Название: " + getName() + ", Продолжительность: " + getMusic_length() + ", Стиль: " + getStyle();
+            return "Название: " + GetName() + ", Продолжительность: " + GetMusic_length() + ", Стиль: " + GetStyle();
         }
     }
 }

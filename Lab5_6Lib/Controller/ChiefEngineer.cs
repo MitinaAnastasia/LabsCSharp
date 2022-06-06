@@ -10,84 +10,83 @@ namespace лаба5_6_с_шарп.Controller
 {
     // Данный класс имеет возможность создавать объект, способный ремонтировать конвеер.
     // Более того, если данный объект класса добавлен в модель, то другие существующие механики получают бонус к скорости ремонта.
-    public class ChiefEngineer : Models.Mechanics
+    public class ChiefEngineer : Models.IMechanics
     {
-        public Models.Parts CE_pbChiefMech = new Models.Parts();
-        public int CE_iRepairSpeed { get; set; }    // Скорость починки
-        public int CE_iProgress { get; set; }   // Прогресс починки
-        public bool CE_bBusyness { get; set; }  // True - свободен, False- занят
+        public Models.Parts ChiefMechanic = new();
+        public int RepairSpeed { get; set; }    // Скорость починки
+        public int Progress { get; set; }   // Прогресс починки
+        public bool Busyness { get; set; }  // True - свободен, False- занят
 
 
         public ChiefEngineer()
         {
-            initializeMechanic();
+            InitializeMechanic();
         }
 
 
-        public void initializeMechanic()
+        public void InitializeMechanic()
         {
-            CE_pbChiefMech.Name = "chiefmech";
-            CE_pbChiefMech.P_iPosX = 1100;
-            CE_pbChiefMech.P_iPosY = 60;
-            CE_iRepairSpeed = 2;
-            CE_iProgress = 0;
-            CE_bBusyness = true;
+            ChiefMechanic.PosX = 1100;
+            ChiefMechanic.PosY = 60;
+            RepairSpeed = 2;
+            Progress = 0;
+            Busyness = true;
         }
 
 
-        public void chiefOnField(SeniorMechanic senmech, JuniorMechanic junmech)
-        {
-            if (senmech != null)
-            {
-                senmech.SM_iRepairSpeed += 10;
-            }
-            if (junmech != null)
-            {
-                junmech.JM_iRepairSpeed += 17;
-            }
-        }
-
-
-        public void chiefOffField(SeniorMechanic senmech, JuniorMechanic junmech)
+        public static void ChiefOnField(SeniorMechanic senmech, JuniorMechanic junmech)
         {
             if (senmech != null)
             {
-                senmech.SM_iRepairSpeed -= 10;
+                senmech.RepairSpeed += 10;
             }
             if (junmech != null)
             {
-                junmech.JM_iRepairSpeed -= 17;
+                junmech.RepairSpeed += 17;
             }
         }
 
 
-        public void repairLoader(ref Models.Conveyors CC_cConveyor)
+        public static void ChiefOffField(SeniorMechanic senmech, JuniorMechanic junmech)
         {
-            CE_pbChiefMech.P_iPosX = CC_cConveyor.C_pbConveer.P_iPosX + 700;
-            CE_pbChiefMech.P_iPosY = CC_cConveyor.C_pbConveer.P_iPosY;
-            if (CE_iProgress < Models.Conveyors.C_iHitbox)
+            if (senmech != null)
             {
-                CE_iProgress += CE_iRepairSpeed;
+                senmech.RepairSpeed -= 10;
+            }
+            if (junmech != null)
+            {
+                junmech.RepairSpeed -= 17;
+            }
+        }
+
+
+        public void RepairLoader(ref Models.Conveyors conveyorControll)
+        {
+            ChiefMechanic.PosX = conveyorControll.Conveyor.PosX + 700;
+            ChiefMechanic.PosY = conveyorControll.Conveyor.PosY;
+            if (Progress < Models.Conveyors.Hitbox)
+            {
+                Progress += RepairSpeed;
             }
             else
             {
-                CE_pbChiefMech.P_iPosX = 1100;
-                CE_pbChiefMech.P_iPosY = 60;
-                CE_bBusyness = true;
-                CC_cConveyor.C_bWorkStatus = true;
-                CC_cConveyor.C_bRepairStatus = false;
-                CE_iProgress = 0;
+                ChiefMechanic.PosX = 1100;
+                ChiefMechanic.PosY = 60;
+                Busyness = true;
+                conveyorControll.WorkStatus = true;
+                conveyorControll.RepairStatus = false;
+                Progress = 0;
             }
         }
 
 
-        public void controlRepair(ref Models.Conveyors CC_cConveyor)
+        public void ControlRepair(ref Models.Conveyors conveyorControll)
         {
-            CE_bBusyness = false;
-            CC_cConveyor.C_bRepairStatus = true;
-            if (CC_cConveyor.C_bWorkStatus == false)
+            Busyness = false;
+            conveyorControll.RepairStatus = true;
+            if (conveyorControll.WorkStatus == false)
             {
-                repairLoader(ref CC_cConveyor);
+                RepairLoader(ref conveyorControll);
             }
         }
     }

@@ -22,61 +22,61 @@ namespace лаба2_с_шарп
     public class Televisions //класс 1-го уровня
     {
 
-        private string firm;
-        private int diagonal;
-        private int sound_power;
+        private string _firm;
+        private int _diagonal;
+        private int _soundPower;
 
         public Televisions() //конструктор по умолчанию
         {
 
         }
 
-        public Televisions(string firm, int diagonal, int sound_power) //конструктор с параметрами
+        public Televisions(string firm, int diagonal, int soundPower) //конструктор с параметрами
         {
-            this.firm = firm;
-            this.diagonal = diagonal;
-            this.sound_power = sound_power;
+            _firm = firm;
+            _diagonal = diagonal;
+            _soundPower = soundPower;
         }
 
-        public string getFirm()
+        public string GetFirm()
         {
-            return firm;
+            return _firm;
         }
 
-        public void setFirm(string firm)
+        public void SetFirm(string firm)
         {
-            this.firm = firm;
+            _firm = firm;
         }
 
-        public int getDiagonal()
+        public int GetDiagonal()
         {
-            return diagonal;
+            return _diagonal;
         }
 
-        public void setDiagonal(int diagonal)
+        public void SetDiagonal(int diagonal)
         {
-            this.diagonal = diagonal;
+            _diagonal = diagonal;
         }
 
-        public int getSound_power()
+        public int GetSoundPower()
         {
-            return sound_power;
+            return _soundPower;
         }
 
-        public void setSound_power(int sound_power)
+        public void SetSoundPower(int soundPower)
         {
-            this.sound_power = sound_power;
+            _soundPower = soundPower;
         }
 
-        public virtual double qualityOfTV() //функция, которая определяет качество объекта по заданной формуле для класса 1-го уровня
+        public virtual double QualityOfTV() //функция, которая определяет качество объекта по заданной формуле для класса 1-го уровня
         {
-            double Q = getDiagonal() + (0.05 * getSound_power());
-            return Q;
+            double quality = GetDiagonal() + (0.05 * GetSoundPower());
+            return quality;
         }
 
-        public virtual string makeStr() // возвращает строку для вывода в листбокс класса 1-го уровня
+        public virtual string MakeStr() // возвращает строку для вывода в листбокс класса 1-го уровня
         {
-            return "Фирма: " + getFirm() + ", Диагональ экрана: " + getDiagonal() + " дюйм, Звуковая мощность: " + getSound_power() + " дБ";
+            return "Фирма: " + GetFirm() + ", Диагональ экрана: " + GetDiagonal() + " дюйм, Звуковая мощность: " + GetSoundPower() + " дБ";
         }
 
     }
